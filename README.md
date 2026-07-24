@@ -4,7 +4,7 @@ The marketing site for [Hatch Insurance Agency](https://hatchinsurance.com), an
 independent, family-owned agency in Phoenix, AZ. Founded 1973, licensed in 44
 states, eight specialty practices.
 
-This is a single-page static site. No build step.
+This is a single-page static site. No build step
 
 ## Stack
 
