@@ -20,7 +20,7 @@
     },
     {
       n: '02',
-      title: 'Bars, Taverns & Restaurants',
+      title: 'Bars & Restaurants',
       audience: 'Independent restaurants, bars, hospitality groups',
       body: 'Where service floors, liquor, and payroll exposure stack on top of each other. Coverage that understands a Saturday night.',
       img: 'assets/verticals/bars.jpg',
