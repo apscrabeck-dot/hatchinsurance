@@ -12,16 +12,29 @@ Plain HTML, CSS, and a small vanilla-JS file. Fonts are pulled from Google
 Fonts. Everything renders without a framework or compiler.
 
 ```
-index.html        Markup for the whole page.
-styles.css        Tokens + section styles + responsive breakpoints.
-script.js         Specialty tab switching + mobile nav toggle.
-assets/verticals/ Photography for the hero and the eight practice plates.
-netlify.toml      Netlify build/headers config.
+index.html          Markup for the homepage.
+styles.css          Tokens + section styles + responsive breakpoints,
+                     including the specialty landing page styles.
+script.js           Specialty tab switching + mobile nav toggle. Also
+                     points each specialty's "Talk to a specialist" CTA
+                     at its dedicated page in specialties/.
+assets/verticals/   Photography for the homepage hero and the eight
+                     practice-plate previews.
+assets/specialties/ Hero, gallery, and person photography for the eight
+                     dedicated specialty landing pages.
+specialties/        Eight standalone landing pages (one per practice —
+                     towing, hospitality, personal, commercial,
+                     contractors, life, pest, garage), each with legal
+                     requirements, recommended coverage, risks, FAQ, and
+                     a quote CTA. Linked from the homepage's specialty
+                     tab CTAs and cross-linked to each other in their
+                     footers.
+netlify.toml        Netlify build/headers config.
 _design-reference/
-                  Original design handoff: prototype HTML, JSX, CSS, and
-                  the design spec (DESIGN_HANDOFF.md). Kept in the repo
-                  for posterity but excluded from the deploy via
-                  netlify.toml's publish dir.
+                     Original design handoff: prototype HTML, JSX, CSS, and
+                     the design spec (DESIGN_HANDOFF.md). Kept in the repo
+                     for posterity but excluded from the deploy via
+                     netlify.toml's publish dir.
 ```
 
 ## Run locally

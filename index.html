@@ -51,7 +51,23 @@
 
       <nav class="dirC__nav" id="primary-nav" aria-label="Primary">
         <a href="#practice">Practice</a>
-        <a href="#specialty">Specialties</a>
+        <div class="dirC__nav-dropdown">
+          <button type="button" class="dirC__nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="specialties-menu">
+            Specialties
+            <span class="dirC__nav-dropdown-caret" aria-hidden="true">&#9662;</span>
+          </button>
+          <ul class="dirC__nav-dropdown-menu" id="specialties-menu">
+            <li><a href="specialties/towing.html"><span class="n">01</span> Towing &amp; Recovery</a></li>
+            <li><a href="specialties/hospitality.html"><span class="n">02</span> Bars, Taverns &amp; Restaurants</a></li>
+            <li><a href="specialties/personal.html"><span class="n">03</span> Affluent Personal Lines</a></li>
+            <li><a href="specialties/commercial.html"><span class="n">04</span> Commercial P&amp;C</a></li>
+            <li><a href="specialties/contractors.html"><span class="n">05</span> Artisan Contractors</a></li>
+            <li><a href="specialties/life.html"><span class="n">06</span> Life &amp; Family</a></li>
+            <li><a href="specialties/pest.html"><span class="n">07</span> Pest Control</a></li>
+            <li><a href="specialties/garage.html"><span class="n">08</span> Garage &amp; Dealers</a></li>
+            <li class="dirC__nav-dropdown-menu-all-item"><a class="dirC__nav-dropdown-all" href="#specialty">View all on this page</a></li>
+          </ul>
+        </div>
         <a href="#approach">Approach</a>
         <a href="#people">People</a>
         <a href="#visit">Visit</a>
@@ -206,7 +222,7 @@
             </ul>
           </div>
 
-          <a class="dirC__plate-cta" href="#visit">
+          <a class="dirC__plate-cta" href="specialties/towing.html">
             <span id="plate-cta">Talk to a towing specialist</span>
             <span class="arr" aria-hidden="true">&#8599;</span>
           </a>

@@ -15,7 +15,8 @@
       body: 'Operators whose risk moves every hour of the day. Built around equipment exposure, driver risk, and time-sensitive claims response.',
       img: 'assets/verticals/towing.jpg',
       tags: ['Equipment & cargo', 'Multi-state fleets', 'Wrongful repo defense'],
-      cta: 'Talk to a towing specialist'
+      cta: 'Talk to a towing specialist',
+      page: 'specialties/towing.html'
     },
     {
       n: '02',
@@ -24,7 +25,8 @@
       body: 'Where service floors, liquor, and payroll exposure stack on top of each other. Coverage that understands a Saturday night.',
       img: 'assets/verticals/bars.jpg',
       tags: ['Liquor liability', 'Business income', 'Workers comp'],
-      cta: 'Protect my venue'
+      cta: 'Protect my venue',
+      page: 'specialties/hospitality.html'
     },
     {
       n: '03',
@@ -33,7 +35,8 @@
       body: 'Personal insurance presented like private advisory work — homes, autos, umbrellas, boats, and collector vehicles in one portfolio view.',
       img: 'assets/verticals/affluent.png',
       tags: ['Multi-property', 'Umbrella & excess', 'Collector vehicles'],
-      cta: 'Review my portfolio'
+      cta: 'Review my portfolio',
+      page: 'specialties/personal.html'
     },
     {
       n: '04',
@@ -42,7 +45,8 @@
       body: 'A sharper commercial story for owners who have outgrown basic quoting. Packaging strategy, coverage design, multi-line stewardship.',
       img: 'assets/verticals/commercial.jpg',
       tags: ['Property & GL', 'Workers comp', 'Continuity planning'],
-      cta: 'Get a commercial review'
+      cta: 'Get a commercial review',
+      page: 'specialties/commercial.html'
     },
     {
       n: '05',
@@ -51,7 +55,8 @@
       body: 'Built for crews, job sites, tools, vehicles, and real construction risk — not generic small-business policies.',
       img: 'assets/verticals/contractor2.png',
       tags: ['Tools & equipment', 'Auto & GL', 'Certificates of insurance'],
-      cta: 'Talk to a contractor specialist'
+      cta: 'Talk to a contractor specialist',
+      page: 'specialties/contractors.html'
     },
     {
       n: '06',
@@ -60,7 +65,8 @@
       body: 'Life coverage rooted in real obligations — debt, mortgage, income replacement, education — not a generic calculator.',
       img: 'assets/verticals/life.png',
       tags: ['Term & whole', 'Key-person', 'Education planning'],
-      cta: 'Plan with a life advisor'
+      cta: 'Plan with a life advisor',
+      page: 'specialties/life.html'
     },
     {
       n: '07',
@@ -69,7 +75,8 @@
       body: 'Coverage built around chemical exposure, applicator licensing, vehicle fleets, and the liability tail unique to the pest control trade.',
       img: 'assets/verticals/pest-control.png',
       tags: ['Pollution liability', 'Auto & equipment', 'Applicator E&O'],
-      cta: 'Talk to a pest control specialist'
+      cta: 'Talk to a pest control specialist',
+      page: 'specialties/pest.html'
     },
     {
       n: '08',
@@ -78,7 +85,8 @@
       body: 'Garage liability, dealers open lot, and service operations coverage for shops and dealers that need more than a standard commercial auto policy.',
       img: 'assets/verticals/mechanic.png',
       tags: ['Garage liability', 'Dealers open lot', 'Workers comp'],
-      cta: 'Talk to a garage specialist'
+      cta: 'Talk to a garage specialist',
+      page: 'specialties/garage.html'
     }
   ];
 
@@ -95,7 +103,8 @@
     aud:     document.getElementById('plate-aud'),
     summary: document.getElementById('plate-summary'),
     tags:    document.getElementById('plate-tags'),
-    cta:     document.getElementById('plate-cta')
+    cta:     document.getElementById('plate-cta'),
+    ctaLink: document.querySelector('.dirC__plate-cta')
   };
 
   function renderSpecialty(i) {
@@ -115,6 +124,7 @@
       return li.outerHTML;
     }).join('');
     els.cta.textContent = s.cta;
+    if (els.ctaLink && s.page) els.ctaLink.setAttribute('href', s.page);
     if (plate) plate.setAttribute('aria-labelledby', 'tab-' + i);
   }
 
@@ -205,6 +215,43 @@
 
   // Always rotate — 10 seconds per practice.
   startAutoRotate();
+
+  // ----- Specialties nav dropdown -----
+  var dropdowns = Array.from(document.querySelectorAll('.dirC__nav-dropdown'));
+
+  function closeDropdown(dd) {
+    var trigger = dd.querySelector('.dirC__nav-dropdown-trigger');
+    dd.classList.remove('is-open');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+  }
+
+  function openDropdown(dd) {
+    dropdowns.forEach(function (other) { if (other !== dd) closeDropdown(other); });
+    var trigger = dd.querySelector('.dirC__nav-dropdown-trigger');
+    dd.classList.add('is-open');
+    if (trigger) trigger.setAttribute('aria-expanded', 'true');
+  }
+
+  dropdowns.forEach(function (dd) {
+    var trigger = dd.querySelector('.dirC__nav-dropdown-trigger');
+    if (!trigger) return;
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (dd.classList.contains('is-open')) closeDropdown(dd);
+      else openDropdown(dd);
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    dropdowns.forEach(function (dd) {
+      if (!dd.contains(e.target)) closeDropdown(dd);
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') dropdowns.forEach(closeDropdown);
+  });
 
   // ----- Mobile nav toggle -----
   const navToggle = document.querySelector('.dirC__nav-toggle');
